@@ -1,0 +1,48 @@
+body {
+  background-image: url("https://wallpaperaccess.com/full/351949.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.wholeDoc {
+  margin: 60px auto;
+  max-width: 82%;
+  border-radius: 6px;
+}
+
+.s {
+  display: block;
+}
+.condition {
+  font-size: medium;
+}
+
+.wholeTxt {
+  margin: 0 auto;
+  max-width: 80%;
+}
+#fahrenheit-link,
+#celsius-link {
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(13, 8, 19);
+}
+#temperature {
+  font-size: 1.5em;
+}
+
+#time {
+  font-size: 1em;
+}
+
+#city {
+  font-size: 1.3em;
+  font-weight: bold;
+  font-style: italic;
+}
+.condition {
+  font-size: 1.5em;
+}
