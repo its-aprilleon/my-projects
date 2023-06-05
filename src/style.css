@@ -37,7 +37,11 @@ a:hover {
 }
 
 #time {
-  font-size: 1em;
+  display: block;
+  font-size: 2em;
+  text-align: right;
+  font-weight: 500;
+  font-style: oblique;
 }
 
 #city {
@@ -47,4 +51,12 @@ a:hover {
 }
 .condition {
   font-size: 1.5em;
+}
+
+.list-temp {
+  font-weight: bold;
+  text-align: justify;
+}
+i {
+  font-size: 100px;
 }
