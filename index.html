@@ -24,7 +24,7 @@
     <div class="wholeDoc mt-5">
       <div class="wholeTxt">
         <i class="fa-solid fa-sun"></i>
-        <span id="time"></span>
+        <button class="time-button"><span id="time"></span></button>
         <div class="row">
           <div class="col-9">
             <input
@@ -39,7 +39,7 @@
             <input
               type="submit"
               value="Search"
-              class="form-control btn btn-success shadow-sm mt-3"
+              class="form-control btn btn-primary mt-3"
               id="id1"
             />
           </div>
@@ -58,18 +58,17 @@
         <div class="row mx-auto">
           <div class="col-5">
             <h3>
-              <span id="description">Sunny</span><br />
+              <span id="description"></span><br />
               <span class="units">
-                <span id="temperature">30</span>
+                <span id="temperature"></span>
                 <a href="#" id="celsius-link">°C</a> |
                 <a href="#" id="fahrenheit-link">°F</a>
               </span>
             </h3>
-          </div>
-
-          <div class="condition mt-2 col-5">
-            <span id="current-humidity"></span><br />
-            <span id="current-wind-speed"></span>
+            <div class="condition">
+              <div id="current-humidity"></div>
+              <div id="current-wind-speed"></div>
+            </div>
           </div>
         </div>
         <br />
