@@ -1,11 +1,11 @@
-body {
+/* body {
   background-image: url(/src/flower.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   height: 100%;
   width: 100%;
-}
+} */
 
 .wholeDoc {
   margin: 60px auto;
