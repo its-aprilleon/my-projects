@@ -78,5 +78,5 @@ function showPosition(position) {
 let Usersearch = document.querySelector("#dataList");
 Usersearch.addEventListener("click", showCity);
 
-let currentLocationBtn = document.querySelector("#id1");
+let currentLocationBtn = document.querySelector("#search-form");
 currentLocationBtn.addEventListener("click", getCurrentCoordinates);

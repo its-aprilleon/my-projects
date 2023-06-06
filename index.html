@@ -24,34 +24,35 @@
     <div class="wholeDoc mt-5">
       <div class="wholeTxt">
         <button class="time-button"><span id="time"></span></button>
-        <div class="row">
-          <div class="col-9">
-            <input
-              class="form-control mt-3"
-              list="datalistOptions"
-              id="dataList"
-              placeholder="Search"
-              aria-labelledby="location"
-            />
+        <form class="search-form" id="search-form">
+          <div class="row">
+            <div class="col-9">
+              <input
+                class="form-control mt-3"
+                list="datalistOptions"
+                id="dataList"
+                placeholder="Search"
+                aria-labelledby="location"
+              />
+            </div>
+            <div class="col-3">
+              <input
+                type="submit"
+                value="Search"
+                class="form-control btn btn-primary mt-3"
+                id="id1"
+              />
+            </div>
+            <div id="location" class="form-text">Enter your location</div>
           </div>
-          <div class="col-3">
-            <input
-              type="submit"
-              value="Search"
-              class="form-control btn btn-primary mt-3"
-              id="id1"
-            />
-          </div>
-          <div id="location" class="form-text">Enter your location</div>
-        </div>
-        <datalist id="datalistOptions">
-          <option value="San Francisco"></option>
-          <option value="Paris"></option>
-          <option value="Lisbon"></option>
-          <option value="Tokyo"></option>
-          <option value="Moscow"></option>
-        </datalist>
-
+          <datalist id="datalistOptions">
+            <option value="San Francisco"></option>
+            <option value="Paris"></option>
+            <option value="Lisbon"></option>
+            <option value="Tokyo"></option>
+            <option value="Moscow"></option>
+          </datalist>
+        </form>
         <div class="mb-3 mt-3">Result: <span id="city">Yangon</span></div>
 
         <div class="row mx-auto">
