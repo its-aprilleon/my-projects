@@ -11,7 +11,13 @@ body {
 .wholeDoc {
   margin: 60px auto;
   max-width: 82%;
-  border-radius: 6px;
+  /* border-radius: 6px; */
+
+  /* border: 1px solid #dadde1;
+  padding: 15px;
+  margin: 20px auto;
+  border-radius: 10px;
+  max-width: 600px; */
 }
 
 .s {
@@ -59,11 +65,15 @@ a:hover {
   text-align: justify;
 }
 .time-button {
-  color: rgb(255, 255, 255);
+  color: rgb(78, 115, 155);
   display: block;
-  border: none;
+
   background-color: rgb(167, 183, 236);
-  border-radius: 20px;
+
+  border: 1px solid #dadde1;
+  padding: 10px;
+  /* margin: 10px; */
+  border-radius: 40px;
 }
 
 #id1,
