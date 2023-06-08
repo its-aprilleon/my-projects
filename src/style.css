@@ -3,17 +3,14 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-
-  height: 100%;
-  width: 100%;
 }
 
 .wholeDoc {
   margin: 60px auto;
-  max-width: 82%;
+  max-width: 85%;
   /* border-radius: 6px; */
-
-  /* border: 1px solid #dadde1;
+  /* border: 1px solid #dadde1; */
+  /* 
   padding: 15px;
   margin: 20px auto;
   border-radius: 10px;
@@ -29,7 +26,7 @@ body {
 
 .wholeTxt {
   margin: 0 auto;
-  max-width: 80%;
+  max-width: 70%;
 }
 #fahrenheit-link,
 #celsius-link {
@@ -79,4 +76,9 @@ a:hover {
 #id1,
 #dataList {
   border-radius: 50px;
+}
+
+small a {
+  color: #f7f2ff;
+  text-decoration: none;
 }

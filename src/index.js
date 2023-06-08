@@ -25,16 +25,15 @@ let today = document.querySelector("#time");
 today.innerHTML = `${day} ${hours}:${minutes}`;
 
 function searchCity(city) {
-  let apiKey = "9e0fb79c2f66d0cd0dcf06710976a873";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
+  let apiKey = "29baaftfaf333ad6ca3704ob80d346c8";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  console.log(apiUrl);
   axios.get(apiUrl).then(showWeather);
 }
 function showCity(event) {
   event.preventDefault();
   let userInput = document.querySelector("#dataList");
   let city = userInput.value;
-
   searchCity(city);
 }
 
@@ -46,37 +45,39 @@ function getCurrentCoordinates(event) {
 let units = "metric";
 
 function showWeather(response) {
-  let currentCity = response.data.name;
-  let temperature = Math.round(response.data.main.temp);
-  let description = response.data.weather[0].main;
-  let currentHumidity = response.data.main.humidity;
-  let currentWind = Math.round(response.data.wind.speed);
-
   let city = document.querySelector("#city");
   let currentTemp = document.querySelector("#temperature");
   let currentConditions = document.querySelector("#description");
   let humidity = document.querySelector("#current-humidity");
   let windSpeed = document.querySelector("#current-wind-speed");
 
+  let currentCity = response.data.city;
+  let temperature = Math.round(response.data.temperature.current);
+  let description = response.data.condition.description;
+  let currentHumidity = response.data.temperature.humidity;
+  let currentWind = Math.round(response.data.wind.speed);
+
+  city.innerHTML = currentCity;
   currentTemp.innerHTML = temperature;
   currentConditions.innerHTML = description;
   humidity.innerHTML = `Humidity: ${currentHumidity}%`;
   windSpeed.innerHTML = `Wind: ${currentWind} km/h`;
-  city.innerHTML = currentCity;
 }
-searchCity("Yangon");
 
 function showPosition(position) {
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+  let apiKey = "29baaftfaf333ad6ca3704ob80d346c8";
+
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(showWeather);
 }
 
-let Usersearch = document.querySelector("#dataList");
-Usersearch.addEventListener("click", showCity);
+let userSearch = document.querySelector("#dataList");
+userSearch.addEventListener("submit", showCity);
 
 let currentLocationBtn = document.querySelector("#search-form");
-currentLocationBtn.addEventListener("click", getCurrentCoordinates);
+currentLocationBtn.addEventListener("submit", getCurrentCoordinates);
+
+searchCity("Yangon");
