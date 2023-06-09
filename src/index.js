@@ -26,58 +26,47 @@ today.innerHTML = `${day} ${hours}:${minutes}`;
 
 function searchCity(city) {
   let apiKey = "29baaftfaf333ad6ca3704ob80d346c8";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-  console.log(apiUrl);
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+
   axios.get(apiUrl).then(showWeather);
 }
-function showCity(event) {
-  event.preventDefault();
-  let userInput = document.querySelector("#dataList");
-  let city = userInput.value;
-  searchCity(city);
-}
 
-function getCurrentCoordinates(event) {
+function handleSubmit(event) {
   event.preventDefault();
-  navigator.geolocation.getCurrentPosition(showPosition);
+  let cityInputElement = document.querySelector("#dataList");
+  searchCity(cityInputElement.value);
 }
-
-let units = "metric";
 
 function showWeather(response) {
+  let currentCity = response.data.city;
+  let temperature = Math.round(response.data.daily[0].temperature.day);
+  let description = response.data.daily[0].condition.description;
+  let currentHumidity = response.data.daily[0].temperature.humidity;
+  let currentWind = Math.round(response.data.daily[0].wind.speed);
+
   let city = document.querySelector("#city");
   let currentTemp = document.querySelector("#temperature");
   let currentConditions = document.querySelector("#description");
   let humidity = document.querySelector("#current-humidity");
   let windSpeed = document.querySelector("#current-wind-speed");
 
-  let currentCity = response.data.city;
-  let temperature = Math.round(response.data.temperature.current);
-  let description = response.data.condition.description;
-  let currentHumidity = response.data.temperature.humidity;
-  let currentWind = Math.round(response.data.wind.speed);
-
-  city.innerHTML = currentCity;
   currentTemp.innerHTML = temperature;
   currentConditions.innerHTML = description;
   humidity.innerHTML = `Humidity: ${currentHumidity}%`;
   windSpeed.innerHTML = `Wind: ${currentWind} km/h`;
+  city.innerHTML = currentCity;
 }
-
-function showPosition(position) {
-  let apiKey = "29baaftfaf333ad6ca3704ob80d346c8";
-
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
-
-  axios.get(apiUrl).then(showWeather);
-}
-
-let userSearch = document.querySelector("#dataList");
-userSearch.addEventListener("submit", showCity);
-
-let currentLocationBtn = document.querySelector("#search-form");
-currentLocationBtn.addEventListener("submit", getCurrentCoordinates);
-
 searchCity("Yangon");
+
+// function showPosition(position) {
+//   let apiKey = "29baaftfaf333ad6ca3704ob80d346c8";
+
+//   let lat = position.coordinates.latitude;
+//   let lon = position.coordinates.longitude;
+//   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
+
+//   axios.get(apiUrl).then(showWeather);
+// }
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
